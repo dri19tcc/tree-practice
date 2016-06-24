@@ -1,11 +1,11 @@
 # Tree Practice
 
 ## Creating a binary tree on paper
-On paper, create a binary search tree to represent the expressions below.
-1. `3 + 2`
-2. `3 + 2 - 10`
-3. `4 * 3 + 2`
-4. `4 * 3 + 2 - 10 % 5`
+On paper, create a binary expression tree to represent the expressions below.
+1. `3 + 2`  
+2. `3 + 2 - 10`  
+3. `4 * 3 + 2`  
+4. `4 * 3 + 2 - 10 % 5`  
 
 ## Creating a binary manually tree with nodes
 1. Take a look at [`tree-practice.rb`](tree-practice.rb)
