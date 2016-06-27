@@ -18,19 +18,14 @@ end
 def print_postfix(node)
   return if node == nil
   print_postfix(node.left)
-  if node.left == nil || node.right == nil
-    print node.value + " "
-  end
-  if node.left != nil || node.right != nil
-    print node.value + " "
-  end
   print_postfix(node.right)
+  print node.value + " "
 end
 
 def print_prefix(node)
   return if node == nil
-  print_prefix(node.left)
   print node.value + " "
+  print_prefix(node.left)
   print_prefix(node.right)
 end
 
@@ -43,16 +38,16 @@ def operators(node)
   operators(node.right)
 end
 
-def operator_2(node, operands = nil)
-  return if node == nil
-  operands = []
-  operator_2(node.left, operands)
-  if node.left !=  nil || node.right != nil
-    operands << node.value
-    print operands.join + " "
-  end
-  operator_2(node.right, operands)
-end
+# def operator_2(node, operands = nil)
+#   return if node == nil
+#   operands = []
+#   operator_2(node.left, operands)
+#   if node.left !=  nil || node.right != nil
+#     operands << node.value
+#     print operands.join + " "
+#   end
+#   operator_2(node.right, operands)
+# end
 
 def leaf(node, counter = 0)
   return counter if node == nil
@@ -70,6 +65,7 @@ puts print_infix(root)
 puts operators(root)
 puts leaf(root)
 puts print_postfix(root)
+puts print_prefix(root)
 
 root2 = TreeNode.new("-")
 root2.left = TreeNode.new("+")
@@ -79,7 +75,8 @@ root2.right = TreeNode.new("10")
 puts print_infix(root2)
 puts operators(root2)
 puts leaf(root2)
-puts print_postfix(root)
+puts print_postfix(root2)
+puts print_prefix(root2)
 
 root3 = TreeNode.new("+")
 root3.left = TreeNode.new("*")
