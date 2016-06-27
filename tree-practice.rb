@@ -49,6 +49,15 @@ end
 #   operator_2(node.right, operands)
 # end
 
+def exist(node, operator, counter = 0)
+  return counter if node == nil
+  counter = exist(node.left, operator, counter)
+  if node.value == operator
+    counter += 1
+  end
+  exist(node.right, operator, counter)
+end
+
 def leaf(node, counter = 0)
   return counter if node == nil
   counter = leaf(node.left, counter)
@@ -66,6 +75,7 @@ puts operators(root)
 puts leaf(root)
 puts print_postfix(root)
 puts print_prefix(root)
+puts "exist for root" + exist(root, "+").to_s
 
 root2 = TreeNode.new("-")
 root2.left = TreeNode.new("+")
@@ -77,6 +87,7 @@ puts operators(root2)
 puts leaf(root2)
 puts print_postfix(root2)
 puts print_prefix(root2)
+puts "exist for root" + exist(root2, "+").to_s
 
 root3 = TreeNode.new("+")
 root3.left = TreeNode.new("*")
@@ -110,5 +121,6 @@ root5.right = TreeNode.new("*")
 root5.right.left = TreeNode.new("10")
 root5.right.right = TreeNode.new("5")
 puts print_infix(root5)
-puts operator_2(root5)
+# puts operator_2(root5)
 puts leaf(root5)
+puts exist(root5, "-")
